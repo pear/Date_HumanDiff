@@ -1,0 +1,5 @@
+<phpunit strict="true">
+ <php>
+  <includePath>../src/</includePath>
+ </php>
+</phpunit>
