@@ -1,5 +1,17 @@
 <?php
 /**
+ * Part of Date_Human
+ *
+ * PHP version 5
+ *
+ * @category Date
+ * @package  Date_Human
+ * @author   Christian Weiske <cweiske@php.net>
+ * @license  http://www.gnu.org/copyleft/lesser.html LGPL
+ * @link     http://pear.php.net/package/Date_Human
+ */
+
+/**
  * Generate textual time differences that are easily understandable by humans.
  *
  * The class supports minutes, hours, days, weeks, months and years.
@@ -8,8 +20,13 @@
  * - 5 seconds ago -> "just now"
  * - 65 seconds ago -> "a minute ago"
  * - 120 seconds ago -> "2 minutes ago"
- *   
- * @link https://github.com/azer/relative-date
+ *
+ * @category Date
+ * @package  Date_Human
+ * @author   Christian Weiske <cweiske@php.net>
+ * @license  http://www.gnu.org/copyleft/lesser.html LGPL
+ * @version  Release: @package_version@
+ * @link     http://pear.php.net/package/Date_Human
  */
 class Date_Human
 {
@@ -20,9 +37,21 @@ class Date_Human
     static $MONTH = 2628000;//static::$YEAR / 12
     static $YEAR = 31536000;//static::$DAY * 365
 
+    /**
+     * Array of possible time difference display formats.
+     * Each value is an array with the following values:
+     * - max. time difference
+     * - textual description
+     * - number to divide the time difference by
+     *
+     * @var    array
+     * @usedby get()
+     */
     protected $formats;
 
-
+    /**
+     * Create new instance, initialize $formats array
+     */
     public function __construct()
     {
         $this->formats = array(
@@ -42,6 +71,15 @@ class Date_Human
         );
     }
 
+    /**
+     * Generate a human readable time difference.
+     *
+     * @param int $timestamp Timestamp to get difference to
+     * @param int $reference Reference timestamp to get difference from.
+     *                       If omitted, it's set to the current time.
+     *
+     * @return string Human readable time difference ("a week ago")
+     */
     public function get($timestamp, $reference = null)
     {
         if ($reference === null) {
