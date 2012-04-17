@@ -1,11 +1,11 @@
 <?php
-require_once 'Date/Human.php';
+require_once 'Date/HumanDiff.php';
 
-class Date_HumanTest extends PHPUnit_Framework_TestCase
+class Date_HumanDiffTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->dh = new Date_Human();
+        $this->dh = new Date_HumanDiff();
     }
 
 

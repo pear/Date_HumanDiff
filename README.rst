@@ -1,6 +1,6 @@
-**********
-Date_Human
-**********
+**************
+Date_HumanDiff
+**************
 Generate textual time differences that are easily understandable by humans.
 
 The class supports minutes, hours, days, weeks, months and years.
@@ -23,8 +23,8 @@ Usage
 ::
 
   <?php
-  require_once 'Date/Human.php';
-  $dh = new Date_Human();
+  require_once 'Date/HumanDiff.php';
+  $dh = new Date_HumanDiff();
   echo $dh->get(time() - 3600);//shows "a hour ago"
   ?>
 
@@ -32,7 +32,7 @@ Usage
 Other libraries
 ===============
 https://github.com/azer/relative-date/blob/master/lib/relative-date.js
- Javascript; library that's been used as base for Date_Human
+ Javascript; library that's been used as base for Date_HumanDiff
 https://github.com/rmm5t/jquery-timeago
  Javascript; with localization options
 http://pypi.python.org/pypi/py-pretty

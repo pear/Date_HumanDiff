@@ -1,14 +1,14 @@
 <?php
 /**
- * Part of Date_Human
+ * Part of Date_HumanDiff
  *
  * PHP version 5
  *
  * @category Date
- * @package  Date_Human
+ * @package  Date_HumanDiff
  * @author   Christian Weiske <cweiske@php.net>
  * @license  http://www.gnu.org/copyleft/lesser.html LGPL
- * @link     http://pear.php.net/package/Date_Human
+ * @link     http://pear.php.net/package/Date_HumanDiff
  */
 
 /**
@@ -22,13 +22,13 @@
  * - 120 seconds ago -> "2 minutes ago"
  *
  * @category Date
- * @package  Date_Human
+ * @package  Date_HumanDiff
  * @author   Christian Weiske <cweiske@php.net>
  * @license  http://www.gnu.org/copyleft/lesser.html LGPL
  * @version  Release: @package_version@
- * @link     http://pear.php.net/package/Date_Human
+ * @link     http://pear.php.net/package/Date_HumanDiff
  */
-class Date_Human
+class Date_HumanDiff
 {
     static $MINUTE = 60;
     static $HOUR = 3600;//static::$MINUTE * 60

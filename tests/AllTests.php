@@ -1,11 +1,11 @@
 <?php
 if (!defined('PHPUnit_MAIN_METHOD')) {
-    define('PHPUnit_MAIN_METHOD', 'Date_Human_AllTests::main');
+    define('PHPUnit_MAIN_METHOD', 'Date_Human_DiffAllTests::main');
 }
 
 require_once 'PHPUnit/Autoload.php';
 
-class Date_Human_AllTests
+class Date_Human_DiffAllTests
 {
     public static function main()
     {
@@ -14,17 +14,16 @@ class Date_Human_AllTests
 
     public static function suite()
     {
-        $suite = new PHPUnit_Framework_TestSuite('Date_Human tests');
-        /** Add testsuites, if there is. */
+        $suite = new PHPUnit_Framework_TestSuite('Date_HumanDiff tests');
         $suite->addTestFiles(
-            array(__DIR__ . '/Date/HumanTest.php')
+            array(__DIR__ . '/Date/HumanDiffTest.php')
         );
 
         return $suite;
     }
 }
 
-if (PHPUnit_MAIN_METHOD == 'Date_Human_AllTests::main') {
-    Date_Human_AllTests::main();
+if (PHPUnit_MAIN_METHOD == 'Date_Human_DiffAllTests::main') {
+    Date_Human_DiffAllTests::main();
 }
 ?>
