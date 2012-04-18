@@ -86,6 +86,9 @@ class Date_HumanDiff
             $reference = time();
         }
 
+        $timestamp = is_numeric($timestamp) ? $timestamp : strtotime($timestamp);
+        $reference = is_numeric($reference) ? $reference : strtotime($reference);
+
         $delta = $reference - $timestamp;
         $len   = count($this->formats);
 
