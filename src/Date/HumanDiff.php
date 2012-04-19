@@ -87,10 +87,8 @@ class Date_HumanDiff
         }
 
         $delta = $reference - $timestamp;
-        $len   = count($this->formats);
 
-        for ($i = 0; $i < $len; $i++) {
-            $format = $this->formats[$i];
+        foreach ($this->formats as $format) {
             if ($delta < $format[0]) {
                 return sprintf($format[1], round($delta / $format[2]));
             }
