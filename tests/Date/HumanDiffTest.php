@@ -78,6 +78,24 @@ class Date_HumanDiffTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('3 months ago', $this->dh->get('2012-02-01 00:00:00','2012-04-19 00:00:00'));
         $this->assertEquals('4 months ago', $this->dh->get('2012-01-01','2012-04-19'));
     }
+
+    public function testGetStringDateTime()
+    {
+        $this->assertEquals(
+            '3 months ago',
+            $this->dh->get(
+                new DateTime('2012-02-01 00:00:00'),
+                '2012-04-19 00:00:00'
+            )
+        );
+        $this->assertEquals(
+            '4 months ago',
+            $this->dh->get(
+                '2012-01-01',
+                new DateTime('2012-04-19')
+            )
+        );
+    }
 }
 
 ?>

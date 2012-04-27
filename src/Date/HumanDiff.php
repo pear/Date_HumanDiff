@@ -86,8 +86,8 @@ class Date_HumanDiff
             $reference = time();
         }
 
-        $timestamp = is_numeric($timestamp) ? $timestamp : strtotime($timestamp);
-        $reference = is_numeric($reference) ? $reference : strtotime($reference);
+        $timestamp = $this->makeTimestamp($timestamp);
+        $reference = $this->makeTimestamp($reference);
 
         $delta = $reference - $timestamp;
 
@@ -96,6 +96,29 @@ class Date_HumanDiff
                 return sprintf($format[1], round($delta / $format[2]));
             }
         };
+    }
+
+    /**
+     * Convert given variable to a unix timestamp.
+     *
+     * Supported formats:
+     * - DateTime object
+     * - unix timestamps
+     * - Strings that can be converted with strtotime
+     *
+     * @param mixed $something Some variable
+     *
+     * @return integer Unix timestamp
+     */
+    protected function makeTimestamp($something)
+    {
+        if ($something instanceof DateTime) {
+            return $something->getTimestamp();
+        } else if (is_numeric($something)) {
+            return (int)$something;
+        }
+
+        return strtotime($something);
     }
 }
 
