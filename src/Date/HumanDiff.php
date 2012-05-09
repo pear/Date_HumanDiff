@@ -50,6 +50,16 @@ class Date_HumanDiff
     protected $formats;
 
     /**
+     * Translation object.
+     * Provides translations for time strings
+     *
+     * @var Date_HumanDiff_Lang
+     */
+    protected $translator;
+
+
+
+    /**
      * Create new instance, initialize $formats array
      */
     public function __construct()
@@ -93,7 +103,10 @@ class Date_HumanDiff
 
         foreach ($this->formats as $format) {
             if ($delta < $format[0]) {
-                return sprintf($format[1], round($delta / $format[2]));
+                return sprintf(
+                    $this->getTranslation($format[1]),
+                    round($delta / $format[2])
+                );
             }
         };
     }
@@ -119,6 +132,92 @@ class Date_HumanDiff
         }
 
         return strtotime($something);
+    }
+
+    /**
+     * Get the translation for the given string.
+     *
+     * @param string $string String to translate
+     *
+     * @return string Translated string. Original string when no translation
+     *                exists.
+     */
+    protected function getTranslation($string)
+    {
+        if ($this->translator === null) {
+            return $string;
+        }
+
+        return $this->translator->get($string);
+    }
+
+    /**
+     * Set the object that's used to translate time strings
+     *
+     * @param object $translator Language translation object
+     *
+     * @return void
+     */
+    public function setTranslator(Date_HumanDiff_Lang $translator)
+    {
+        $this->translator = $translator;
+    }
+
+    /**
+     * Set the language to use.
+     *
+     * Supported formats:
+     * - 2-letter ISO code ("de", "fr")
+     * - locale name with and without encoding ("de_AT", "fr_FR.utf8")
+     *
+     * @param string $lang Language name
+     *
+     * @return boolean True if the translations could be loaded, false if not.
+     */
+    public function setLanguage($lang)
+    {
+        if (strlen($lang) > 2) {
+            //split off encoding
+            list($locale,) = explode('.', $lang);
+            if (!preg_match('#^[a-z_]+$#i', $locale)) {
+                return false;
+            }
+            $lang = $locale;
+        }
+
+        $class = 'Date_HumanDiff_Lang_' . $lang;
+        $file  = str_replace('_', '/', $class) . '.php';
+        if ($this->isIncludable($file)) {
+            include_once $file;
+        }
+        if (!class_exists($class)) {
+            if (strlen($lang) > 2) {
+                //try main language without country
+                return $this->setLanguage(substr($lang, 0, 2));
+            }
+            return false;
+        }
+
+        $translator = new $class();
+        $this->setTranslator($translator);
+        return true;
+    }
+
+    /**
+     * Check if the given file is includable
+     *
+     * @param string $file Path to file (relative to include path)
+     *
+     * @return boolean True if one can include() it
+     */
+    protected function isIncludable($file)
+    {
+        $hdl = @fopen($file, 'r', true);
+        if ($hdl === false) {
+            return false;
+        }
+        fclose($hdl);
+        return true;
     }
 }
 
