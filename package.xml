@@ -24,11 +24,11 @@ A time difference of 65 seconds gets converted to "a minute ago".
   <active>yes</active>
  </lead>
 
- <date>2012-04-17</date>
+ <date>2012-05-10</date>
 
  <version>
-  <release>0.1.0</release>
-  <api>0.1.0</api>
+  <release>0.2.0</release>
+  <api>0.2.0</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -37,7 +37,9 @@ A time difference of 65 seconds gets converted to "a minute ago".
  <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
 
  <notes>
-  First release
+New features:
+- Translations
+- Custom formats
  </notes>
 
  <contents>
@@ -46,15 +48,28 @@ A time difference of 65 seconds gets converted to "a minute ago".
    <dir name="src">
     <dir name="Date">
      <file name="HumanDiff.php"       role="php" install-as="Date/HumanDiff.php" />
+     <dir name="HumanDiff">
+      <file name="Lang.php"           role="php" install-as="Date/HumanDiff/Lang.php" />
+      <file name="LangArray.php"      role="php" install-as="Date/HumanDiff/LangArray.php" />
+      <dir name="Lang">
+       <file name="de.php"            role="php" install-as="Date/HumanDiff/Lang/de.php" />
+      </dir>
+     </dir>
     </dir>
    </dir><!-- /src -->
    <dir name="examples">
     <file name="human.php"            role="doc" />
+    <file name="custom.php"           role="doc" />
+    <file name="translation.php"      role="doc" />
    </dir>
    <dir name="tests">
     <file name="AllTests.php"         role="test" />
+    <file name="phpunit.xml"          role="test" />
     <dir name="Date">
-     <file name="HumanDiffTest.php"       role="test" />
+     <file name="HumanDiffTest.php"   role="test" />
+     <dir name="HumanDiff">
+      <file name="LangArrayTest.php"  role="test" />
+     </dir>
     </dir>
    </dir><!-- /tests -->
   </dir>
@@ -74,6 +89,24 @@ A time difference of 65 seconds gets converted to "a minute ago".
  <phprelease />
 
  <changelog>
+
+  <release>
+   <version>
+    <release>0.2.0</release>
+    <api>0.2.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-05-10</date>
+   <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
+   <notes>
+New features:
+- Translations
+- Custom formats
+   </notes>
+  </release>
 
   <release>
    <version>
