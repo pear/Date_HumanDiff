@@ -16,7 +16,10 @@ class Date_Human_DiffAllTests
     {
         $suite = new PHPUnit_Framework_TestSuite('Date_HumanDiff tests');
         $suite->addTestFiles(
-            array(__DIR__ . '/Date/HumanDiffTest.php')
+            array(
+                __DIR__ . '/Date/HumanDiffTest.php',
+                __DIR__ . '/Date/HumanDiff/LangArrayTest.php'
+            )
         );
 
         return $suite;
