@@ -120,6 +120,24 @@ class Date_HumanDiffTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->dh->setLanguage('/path/to/some/file.php'));
         $this->assertEquals('just now', $this->dh->get(time()));
     }
+
+    public function testClearFormats()
+    {
+        $this->dh->clearFormats();
+        $this->assertEquals(null, $this->dh->get(time()));
+    }
+
+    public function testAddFormatUnsorted()
+    {
+        $this->dh->addFormat(10, '10 or less seconds ago', 1, false);
+        $this->assertEquals('just now', $this->dh->get(95, 100));
+    }
+
+    public function testAddFormatSorted()
+    {
+        $this->dh->addFormat(10, '10 or less seconds ago', 1, true);
+        $this->assertEquals('10 or less seconds ago', $this->dh->get(95, 100));
+    }
 }
 
 ?>

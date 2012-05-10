@@ -112,6 +112,60 @@ class Date_HumanDiff
     }
 
     /**
+     * Adds a new format to the list of time formats.
+     *
+     * @param integer $timeDiff Maximum time difference between reference time
+     *                          and given time in seconds.
+     * @param string  $text     Text to show when the format is used
+     * @param integer $divider  Number to divide time difference by
+     * @param boolean $sort     Sort formats. Don't use this if you add many formats
+     *                          but call sortFormats() manually afterwards.
+     *
+     * @return void
+     */
+    public function addFormat($timeDiff, $text, $divider, $sort = true)
+    {
+        $this->formats[] = array($timeDiff, $text, $divider);
+        if ($sort) {
+            $this->sortFormats();
+        }
+    }
+
+    /**
+     * Delete all existing formats.
+     *
+     * @return void
+     */
+    public function clearFormats()
+    {
+        $this->formats = array();
+    }
+
+    /**
+     * Sort all formats by their time difference
+     *
+     * @return void
+     */
+    public function sortFormats()
+    {
+        usort($this->formats, __CLASS__ . '::sortFormatCompare');
+    }
+
+    /**
+     * Comparision function for usort()
+     *
+     * @param array $a First comparator
+     * @param array $b Second comparator
+     *
+     * @return integer  <, = or > 0 - when $a is less, equal or greater than $b
+     */
+    public static function sortFormatCompare($a, $b)
+    {
+        return $a[0] - $b[0];
+    }
+
+
+    /**
      * Convert given variable to a unix timestamp.
      *
      * Supported formats:
