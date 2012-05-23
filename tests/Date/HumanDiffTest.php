@@ -101,12 +101,18 @@ class Date_HumanDiffTest extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue($this->dh->setLanguage('de'));
         $this->assertEquals('gerade eben', $this->dh->get(time()));
+
+        $this->assertTrue($this->dh->setLanguage('el'));
+        $this->assertEquals('μόλις τώρα', $this->dh->get(time()));
     }
 
     public function testSetLanguageParentExisting()
     {
         $this->assertTrue($this->dh->setLanguage('de_AT'));
         $this->assertEquals('gerade eben', $this->dh->get(time()));
+
+        $this->assertTrue($this->dh->setLanguage('el_GR'));
+        $this->assertEquals('μόλις τώρα', $this->dh->get(time()));
     }
 
     public function testSetLanguageNotExisting()
