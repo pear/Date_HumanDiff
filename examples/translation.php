@@ -7,4 +7,4 @@ $dh->setLanguage('de');
 // $dh->setLanguage('de_AT');//falls back to the "de" language
 
 echo $dh->get(time() - 60 * 5) . "\n"; //shows "vor 5 Minuten"
-?>
+

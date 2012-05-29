@@ -20,4 +20,4 @@ abstract class Date_HumanDiff_LangArray implements Date_HumanDiff_Lang
     }
 }
 
-?>
+

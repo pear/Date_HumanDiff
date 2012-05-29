@@ -20,4 +20,4 @@ class Date_HumanDiff_LangArrayTest extends PHPUnit_Framework_TestCase
     }
 }
 
-?>
+

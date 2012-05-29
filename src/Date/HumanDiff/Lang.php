@@ -12,4 +12,4 @@ interface Date_HumanDiff_Lang
     public function get($string);
 }
 
-?>
+
