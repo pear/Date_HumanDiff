@@ -9,4 +9,4 @@ $dh->addFormat(PHP_INT_MAX, 'long long ago', 1);
 
 echo $dh->get(time() - 60 * 4) . "\n"; //shows "< 5m"
 echo $dh->get(time() - 60 * 40) . "\n"; //shows "4 x 10 minutes ago"
-?>
+

@@ -29,4 +29,3 @@ class Date_Human_DiffAllTests
 if (PHPUnit_MAIN_METHOD == 'Date_Human_DiffAllTests::main') {
     Date_Human_DiffAllTests::main();
 }
-?>

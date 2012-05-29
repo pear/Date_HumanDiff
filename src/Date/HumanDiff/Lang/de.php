@@ -25,4 +25,4 @@ class Date_HumanDiff_Lang_de extends Date_HumanDiff_LangArray
         '%d years ago'   => 'vor %d Jahren',
     );
 }
-?>
+
