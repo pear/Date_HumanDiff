@@ -84,8 +84,8 @@ class Date_HumanDiff
     /**
      * Generate a human readable time difference.
      *
-     * @param int $timestamp Timestamp to get difference to
-     * @param int $reference Reference timestamp to get difference from.
+     * @param int|DateTime $timestamp Timestamp to get difference to
+     * @param int|DateTime $reference Reference timestamp to get difference from.
      *                       If omitted, it's set to the current time.
      *
      * @return string Human readable time difference ("a week ago")
