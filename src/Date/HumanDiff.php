@@ -148,7 +148,7 @@ class Date_HumanDiff
      */
     public function sortFormats()
     {
-        usort($this->formats, __CLASS__ . '::sortFormatCompare');
+        usort($this->formats, array($this, 'sortFormatCompare'));
     }
 
     /**
@@ -159,7 +159,7 @@ class Date_HumanDiff
      *
      * @return integer  <, = or > 0 - when $a is less, equal or greater than $b
      */
-    public static function sortFormatCompare($a, $b)
+    public function sortFormatCompare($a, $b)
     {
         return $a[0] - $b[0];
     }
