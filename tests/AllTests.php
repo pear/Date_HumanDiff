@@ -18,7 +18,7 @@ class Date_Human_DiffAllTests
         $suite->addTestFiles(
             array(
                 __DIR__ . '/Date/HumanDiffTest.php',
-                __DIR__ . '/Date/HumanDiff/LangArrayTest.php'
+                __DIR__ . '/Date/HumanDiff/LocaleArrayTest.php'
             )
         );
 
