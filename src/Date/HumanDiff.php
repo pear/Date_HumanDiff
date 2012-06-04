@@ -181,7 +181,8 @@ class Date_HumanDiff
     {
         if ($something instanceof DateTime) {
             return $something->getTimestamp();
-        } else if (is_numeric($something)) {
+        }
+        if (is_numeric($something)) {
             return (int)$something;
         }
 
