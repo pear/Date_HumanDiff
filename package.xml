@@ -12,8 +12,8 @@
  <channel>pear.php.net</channel>
  <summary>Generate textual time differences that are easily understandable by humans</summary>
  <description>
-Generate textual time differences that are easily understandable by humans.
-The class supports minutes, hours, days, weeks, months and years.
+Generate textual time differences that are easily understandable by humans ("5 minutes ago").
+The package supports minutes, hours, days, weeks, months and years.
 A time difference of 65 seconds gets converted to "a minute ago".
  </description>
 
@@ -24,11 +24,11 @@ A time difference of 65 seconds gets converted to "a minute ago".
   <active>yes</active>
  </lead>
 
- <date>2012-05-10</date>
+ <date>2012-06-04</date>
 
  <version>
-  <release>0.2.0</release>
-  <api>0.2.0</api>
+  <release>0.3.0</release>
+  <api>0.3.0</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -37,9 +37,14 @@ A time difference of 65 seconds gets converted to "a minute ago".
  <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
 
  <notes>
-New features:
-- Translations
-- Custom formats
+Implement changes requested by the PEAR voters:
+- Rename Language to Locale
+- Move number rendering to Locale class
+- Docblock fixes
+- Sort method is non-static now
+
+New feature:
+- Greek translation
  </notes>
 
  <contents>
@@ -49,10 +54,11 @@ New features:
     <dir name="Date">
      <file name="HumanDiff.php"       role="php" install-as="Date/HumanDiff.php" />
      <dir name="HumanDiff">
-      <file name="Lang.php"           role="php" install-as="Date/HumanDiff/Lang.php" />
-      <file name="LangArray.php"      role="php" install-as="Date/HumanDiff/LangArray.php" />
-      <dir name="Lang">
-       <file name="de.php"            role="php" install-as="Date/HumanDiff/Lang/de.php" />
+      <file name="Locale.php"         role="php" install-as="Date/HumanDiff/Locale.php" />
+      <file name="LocaleArray.php"    role="php" install-as="Date/HumanDiff/LocaleArray.php" />
+      <dir name="Locale">
+       <file name="de.php"            role="php" install-as="Date/HumanDiff/Locale/de.php" />
+       <file name="el.php"            role="php" install-as="Date/HumanDiff/Locale/el.php" />
       </dir>
      </dir>
     </dir>
@@ -68,7 +74,7 @@ New features:
     <dir name="Date">
      <file name="HumanDiffTest.php"   role="test" />
      <dir name="HumanDiff">
-      <file name="LangArrayTest.php"  role="test" />
+      <file name="LocaleArrayTest.php"  role="test" />
      </dir>
     </dir>
    </dir><!-- /tests -->
@@ -89,6 +95,29 @@ New features:
  <phprelease />
 
  <changelog>
+
+  <release>
+   <version>
+    <release>0.3.0</release>
+    <api>0.3.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-06-04</date>
+   <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
+   <notes>
+Implement changes requested by the PEAR voters:
+- Rename Language to Locale
+- Move number rendering to Locale class
+- Docblock fixes
+- Sort method is non-static now
+
+New feature:
+- Greek translation
+   </notes>
+  </release>
 
   <release>
    <version>
