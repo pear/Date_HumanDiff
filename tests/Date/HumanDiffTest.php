@@ -102,7 +102,7 @@ class Date_HumanDiffTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->dh->setLocale('de'));
         $this->assertEquals('gerade eben', $this->dh->get(time()));
 
-        $this->assertTrue($this->dh->setLanguage('el'));
+        $this->assertTrue($this->dh->setLocale('el'));
         $this->assertEquals('μόλις τώρα', $this->dh->get(time()));
     }
 
@@ -111,7 +111,7 @@ class Date_HumanDiffTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->dh->setLocale('de_AT'));
         $this->assertEquals('gerade eben', $this->dh->get(time()));
 
-        $this->assertTrue($this->dh->setLanguage('el_GR'));
+        $this->assertTrue($this->dh->setLocale('el_GR'));
         $this->assertEquals('μόλις τώρα', $this->dh->get(time()));
     }
 
