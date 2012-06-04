@@ -1,7 +1,7 @@
 <?php
-require_once 'Date/HumanDiff/LangArray.php';
+require_once 'Date/HumanDiff/LocaleArray.php';
 
-class Date_HumanDiff_Lang_de extends Date_HumanDiff_LangArray
+class Date_HumanDiff_Locale_de extends Date_HumanDiff_LocaleArray
 {
     /**
      * Translation array.

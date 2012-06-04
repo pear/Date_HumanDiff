@@ -1,6 +1,6 @@
 <?php
 
-interface Date_HumanDiff_Lang
+interface Date_HumanDiff_Locale
 {
     /**
      * Get the translation for the given string.

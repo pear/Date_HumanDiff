@@ -212,13 +212,13 @@ class Date_HumanDiff
      *
      * @return void
      */
-    public function setTranslator(Date_HumanDiff_Lang $translator)
+    public function setTranslator(Date_HumanDiff_Locale $translator)
     {
         $this->translator = $translator;
     }
 
     /**
-     * Set the language to use.
+     * Set the locale to use.
      *
      * Supported formats:
      * - 2-letter ISO code ("de", "fr")
@@ -228,7 +228,7 @@ class Date_HumanDiff
      *
      * @return boolean True if the translations could be loaded, false if not.
      */
-    public function setLanguage($lang)
+    public function setLocale($lang)
     {
         if (strlen($lang) > 2) {
             //split off encoding
@@ -239,7 +239,7 @@ class Date_HumanDiff
             $lang = $locale;
         }
 
-        $class = 'Date_HumanDiff_Lang_' . $lang;
+        $class = 'Date_HumanDiff_Locale_' . $lang;
         $file  = str_replace('_', '/', $class) . '.php';
         if ($this->isIncludable($file)) {
             include_once $file;
@@ -247,7 +247,7 @@ class Date_HumanDiff
         if (!class_exists($class)) {
             if (strlen($lang) > 2) {
                 //try main language without country
-                return $this->setLanguage(substr($lang, 0, 2));
+                return $this->setLocale(substr($lang, 0, 2));
             }
             return false;
         }

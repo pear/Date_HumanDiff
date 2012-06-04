@@ -1,7 +1,7 @@
 <?php
-require_once 'Date/HumanDiff/Lang.php';
+require_once 'Date/HumanDiff/Locale.php';
 
-abstract class Date_HumanDiff_LangArray implements Date_HumanDiff_Lang
+abstract class Date_HumanDiff_LocaleArray implements Date_HumanDiff_Locale
 {
     /**
      * Get the translation for the given string.

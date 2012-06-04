@@ -97,27 +97,27 @@ class Date_HumanDiffTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function testSetLanguageExisting()
+    public function testSetLocaleExisting()
     {
-        $this->assertTrue($this->dh->setLanguage('de'));
+        $this->assertTrue($this->dh->setLocale('de'));
         $this->assertEquals('gerade eben', $this->dh->get(time()));
     }
 
-    public function testSetLanguageParentExisting()
+    public function testSetLocaleParentExisting()
     {
-        $this->assertTrue($this->dh->setLanguage('de_AT'));
+        $this->assertTrue($this->dh->setLocale('de_AT'));
         $this->assertEquals('gerade eben', $this->dh->get(time()));
     }
 
-    public function testSetLanguageNotExisting()
+    public function testSetLocaleNotExisting()
     {
-        $this->assertFalse($this->dh->setLanguage('mg'));
+        $this->assertFalse($this->dh->setLocale('mg'));
         $this->assertEquals('just now', $this->dh->get(time()));
     }
 
-    public function testSetLanguageInvalid()
+    public function testSetLocaleInvalid()
     {
-        $this->assertFalse($this->dh->setLanguage('/path/to/some/file.php'));
+        $this->assertFalse($this->dh->setLocale('/path/to/some/file.php'));
         $this->assertEquals('just now', $this->dh->get(time()));
     }
 
