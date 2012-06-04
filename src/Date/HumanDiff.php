@@ -103,8 +103,8 @@ class Date_HumanDiff
 
         foreach ($this->formats as $format) {
             if ($delta < $format[0]) {
-                return sprintf(
-                    $this->getTranslation($format[1]),
+                return $this->getTranslation(
+                    $format[1],
                     round($delta / $format[2])
                 );
             }
@@ -192,18 +192,19 @@ class Date_HumanDiff
     /**
      * Get the translation for the given string.
      *
-     * @param string $string String to translate
+     * @param string  $string String to translate
+     * @param integer $number Number to render into the string
      *
      * @return string Translated string. Original string when no translation
      *                exists.
      */
-    protected function getTranslation($string)
+    protected function getTranslation($string, $number)
     {
         if ($this->translator === null) {
-            return $string;
+            return sprintf($string, $number);
         }
 
-        return $this->translator->get($string);
+        return $this->translator->get($string, $number);
     }
 
     /**
