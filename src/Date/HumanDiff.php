@@ -47,7 +47,8 @@ class Date_HumanDiff
      * @var    array
      * @usedby get()
      */
-    protected $formats;
+    protected $long_formats;
+    protected $short_formats;
 
     /**
      * Translation object.
@@ -56,30 +57,6 @@ class Date_HumanDiff
      * @var Date_HumanDiff_Lang
      */
     protected $translator;
-
-
-
-    /**
-     * Create new instance, initialize $formats array
-     */
-    public function __construct()
-    {
-        $this->formats = array(
-            array(0.7 * static::$MINUTE, 'just now',       1),
-            array(1.5 * static::$MINUTE, 'a minute ago',   1),
-            array( 60 * static::$MINUTE, '%d minutes ago', static::$MINUTE),
-            array(1.5 * static::$HOUR,   'an hour ago',    1),
-            array(      static::$DAY,    '%d hours ago',   static::$HOUR),
-            array(  2 * static::$DAY,    'yesterday',      1),
-            array(  7 * static::$DAY,    '%d days ago',    static::$DAY),
-            array(1.5 * static::$WEEK,   'a week ago',     1),
-            array(      static::$MONTH,  '%d weeks ago',   static::$WEEK),
-            array(1.5 * static::$MONTH,  'a month ago',    1),
-            array(      static::$YEAR,   '%d months ago',  static::$MONTH),
-            array(1.5 * static::$YEAR,   'a year ago',     1),
-            array(PHP_INT_MAX,           '%d years ago',   static::$YEAR)
-        );
-    }
 
     /**
      * Generate a human readable time difference.
@@ -90,7 +67,7 @@ class Date_HumanDiff
      *
      * @return string Human readable time difference ("a week ago")
      */
-    public function get($timestamp, $reference = null)
+    public function get($timestamp, $reference = null, $long_formats = true)
     {
         if ($reference === null) {
             $reference = time();
@@ -101,7 +78,7 @@ class Date_HumanDiff
 
         $delta = $reference - $timestamp;
 
-        foreach ($this->formats as $format) {
+        foreach ($this->getFormats($long_formats) as $format) {
             if ($delta < $format[0]) {
                 return $this->getTranslation(
                     $format[1],
@@ -274,6 +251,60 @@ class Date_HumanDiff
         }
         fclose($hdl);
         return true;
+    }
+
+    protected function getFormats($long_formats = true)
+    {
+        if ($long_formats) {
+            return $this->getLongFormats();
+        }
+        else {
+            return $this->getShortFormats();
+        }
+    }
+
+    protected function getLongFormats()
+    {
+        if (!isset($this->long_formats)) {
+            $this->long_formats = array(
+                array(0.7 * static::$MINUTE, 'just now',       1),
+                array(1.5 * static::$MINUTE, 'a minute ago',   1),
+                array( 60 * static::$MINUTE, '%d minutes ago', static::$MINUTE),
+                array(1.5 * static::$HOUR,   'an hour ago',    1),
+                array(      static::$DAY,    '%d hours ago',   static::$HOUR),
+                array(  2 * static::$DAY,    'yesterday',      1),
+                array(  7 * static::$DAY,    '%d days ago',    static::$DAY),
+                array(1.5 * static::$WEEK,   'a week ago',     1),
+                array(      static::$MONTH,  '%d weeks ago',   static::$WEEK),
+                array(1.5 * static::$MONTH,  'a month ago',    1),
+                array(      static::$YEAR,   '%d months ago',  static::$MONTH),
+                array(1.5 * static::$YEAR,   'a year ago',     1),
+                array(PHP_INT_MAX,           '%d years ago',   static::$YEAR)
+            );
+        }
+        return $this->long_formats;
+    }
+
+    protected function getShortFormats()
+    {
+        if (!isset($this->short_formats)) {
+            $this->short_formats = array(
+                array(0.7 * static::$MINUTE, 'just now',       1),
+                array(1.5 * static::$MINUTE, '1 min',   1),
+                array( 60 * static::$MINUTE, '%d mins', static::$MINUTE),
+                array(1.5 * static::$HOUR,   '1 hour',    1),
+                array(      static::$DAY,    '%d hours',   static::$HOUR),
+                array(  2 * static::$DAY,    '1 day',      1),
+                array(  7 * static::$DAY,    '%d days',    static::$DAY),
+                array(1.5 * static::$WEEK,   '1 week',     1),
+                array(      static::$MONTH,  '%d weeks',   static::$WEEK),
+                array(1.5 * static::$MONTH,  '1 month',    1),
+                array(      static::$YEAR,   '%d months',  static::$MONTH),
+                array(1.5 * static::$YEAR,   '1 year',     1),
+                array(PHP_INT_MAX,           '%d years',   static::$YEAR)
+            );
+        }
+        return $this->short_formats;
     }
 }
 
