@@ -1,6 +1,27 @@
 <?php
+/**
+ * Part of Date_HumanDiff
+ *
+ * PHP version 5
+ *
+ * @category Date
+ * @package  Date_HumanDiff
+ * @author   Christian Weiske <cweiske@php.net>
+ * @license  http://www.gnu.org/copyleft/lesser.html LGPL
+ * @link     http://pear.php.net/package/Date_HumanDiff
+ */
 require_once 'Date/HumanDiff/LocaleArray.php';
 
+/**
+ * German translation of the english messages.
+ *
+ * @category Date
+ * @package  Date_HumanDiff
+ * @author   Christian Weiske <cweiske@php.net>
+ * @license  http://www.gnu.org/copyleft/lesser.html LGPL
+ * @version  Release: @package_version@
+ * @link     http://pear.php.net/package/Date_HumanDiff
+ */
 class Date_HumanDiff_Locale_de extends Date_HumanDiff_LocaleArray
 {
     /**
