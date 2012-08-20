@@ -24,10 +24,10 @@ A time difference of 65 seconds gets converted to "a minute ago".
   <active>yes</active>
  </lead>
 
- <date>2012-06-04</date>
+ <date>2012-08-xx</date>
 
  <version>
-  <release>0.3.0</release>
+  <release>0.4.0</release>
   <api>0.3.0</api>
  </version>
  <stability>
@@ -37,14 +37,8 @@ A time difference of 65 seconds gets converted to "a minute ago".
  <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
 
  <notes>
-Implement changes requested by the PEAR voters:
-- Rename Language to Locale
-- Move number rendering to Locale class
-- Docblock fixes
-- Sort method is non-static now
-
 New feature:
-- Greek translation
+- Persian translation
  </notes>
 
  <contents>
@@ -59,6 +53,7 @@ New feature:
       <dir name="Locale">
        <file name="de.php"            role="php" install-as="Date/HumanDiff/Locale/de.php" />
        <file name="el.php"            role="php" install-as="Date/HumanDiff/Locale/el.php" />
+       <file name="fa.php"            role="php" install-as="Date/HumanDiff/Locale/fa.php" />
       </dir>
      </dir>
     </dir>
