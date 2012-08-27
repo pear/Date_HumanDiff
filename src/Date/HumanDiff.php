@@ -243,7 +243,7 @@ class Date_HumanDiff
 
         $class = 'Date_HumanDiff_Locale_' . $lang;
         $file  = str_replace('_', '/', $class) . '.php';
-        if ($this->isIncludable($file)) {
+        if (stream_resolve_include_path($file) !== false) {
             include_once $file;
         }
         if (!class_exists($class)) {
@@ -256,23 +256,6 @@ class Date_HumanDiff
 
         $translator = new $class();
         $this->setTranslator($translator);
-        return true;
-    }
-
-    /**
-     * Check if the given file is includable
-     *
-     * @param string $file Path to file (relative to include path)
-     *
-     * @return boolean True if one can include() it
-     */
-    protected function isIncludable($file)
-    {
-        $hdl = @fopen($file, 'r', true);
-        if ($hdl === false) {
-            return false;
-        }
-        fclose($hdl);
         return true;
     }
 }
