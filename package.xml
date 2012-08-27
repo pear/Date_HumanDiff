@@ -24,11 +24,11 @@ A time difference of 65 seconds gets converted to "a minute ago".
   <active>yes</active>
  </lead>
 
- <date>2012-08-xx</date>
+ <date>2012-08-27</date>
 
  <version>
   <release>0.4.0</release>
-  <api>0.3.0</api>
+  <api>0.4.0</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -37,8 +37,8 @@ A time difference of 65 seconds gets converted to "a minute ago".
  <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
 
  <notes>
-New feature:
-- Persian translation
+- add persian translation
+- use stream_resolve_include_path instead of custom method
  </notes>
 
  <contents>
@@ -90,6 +90,23 @@ New feature:
  <phprelease />
 
  <changelog>
+
+  <release>
+   <version>
+    <release>0.4.0</release>
+    <api>0.4.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-08-27</date>
+   <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
+   <notes>
+- add persian translation
+- use stream_resolve_include_path instead of custom method
+   </notes>
+  </release>
 
   <release>
    <version>
