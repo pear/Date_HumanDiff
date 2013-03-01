@@ -13,6 +13,7 @@ class Date_HumanDiffTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals('just now', $this->dh->get(100, 100));
         $this->assertEquals('just now', $this->dh->get(time() - 10));
+        $this->assertEquals('in just a moment', $this->dh->get(time() + 10));
     }
 
     public function testGetAMinute()
@@ -20,12 +21,18 @@ class Date_HumanDiffTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('a minute ago', $this->dh->get(40, 100));
         $this->assertEquals('a minute ago', $this->dh->get(time() - 60));
         $this->assertEquals('a minute ago', $this->dh->get(time() - 50));
+        // one minute in the future
+        $this->assertEquals('a minute away', $this->dh->get(time() + 50));
+        $this->assertEquals('a minute away', $this->dh->get(time() + 60));
+        $this->assertEquals('a minute away', $this->dh->get(time() + 61));
     }
 
     public function testGetMinutes()
     {
         $this->assertEquals('2 minutes ago', $this->dh->get(-120, 0));
         $this->assertEquals('40 minutes ago', $this->dh->get(time() - 60 * 40));
+        $this->assertEquals('2 minutes away', $this->dh->get(time() + 90));
+        $this->assertEquals('40 minutes away', $this->dh->get(time() + 60 * 40));
     }
 
     public function testGetYesterday()
@@ -34,15 +41,22 @@ class Date_HumanDiffTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('yesterday', $this->dh->get(time() - 86400));
     }
 
+    public function testGetTomorrow()
+    {
+        $this->assertEquals('tomorrow', $this->dh->get(time() + 86400));
+    }
+
     public function testGetDays()
     {
         $this->assertEquals('2 days ago', $this->dh->get(-86400 * 2, 0));
         $this->assertEquals('6 days ago', $this->dh->get(time() - 86400 * 6));
+        $this->assertEquals('2 days away', $this->dh->get(time() + 86400 * 2));
     }
 
     public function testGetAWeek()
     {
         $this->assertEquals('a week ago', $this->dh->get(-86400 * 7, 0));
+        $this->assertEquals('a week away', $this->dh->get(time() + 86400 * 7));
     }
 
     public function testGetWeeks()

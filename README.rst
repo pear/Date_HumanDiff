@@ -26,6 +26,8 @@ Usage
   require_once 'Date/HumanDiff.php';
   $dh = new Date_HumanDiff();
   echo $dh->get(time() - 3600);//shows "an hour ago"
+  echo $dh->get(time() + 3600 * 24, time()); //shows "tomorrow"
+
   ?>
 
 
