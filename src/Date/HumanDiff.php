@@ -80,19 +80,19 @@ class Date_HumanDiff
             array(PHP_INT_MAX,           '%d years ago',   static::$YEAR)
         );
         $this->futureformats = array(
-            array(0.7 * static::$MINUTE, 'in just a moment', -1),
-            array(1.5 * static::$MINUTE, 'a minute away',    -1),
-            array( 60 * static::$MINUTE, '%d minutes away',  -static::$MINUTE),
-            array(1.5 * static::$HOUR,   'an hour away',     -1),
-            array(      static::$DAY,    '%d hours away',    -static::$HOUR),
-            array(  2 * static::$DAY,    'tomorrow',         -1),
-            array(  7 * static::$DAY,    '%d days away',     -static::$DAY),
-            array(1.5 * static::$WEEK,   'a week away',      -1),
-            array(      static::$MONTH,  '%d weeks away',    -static::$WEEK),
-            array(1.5 * static::$MONTH,  'a month away',     -1),
-            array(      static::$YEAR,   '%d months away',   -static::$MONTH),
-            array(1.5 * static::$YEAR,   'a year away',      -1),
-            array(PHP_INT_MAX,           '%d years away',    -static::$YEAR)
+            array(0.7 * static::$MINUTE, 'in a moment',   -1),
+            array(1.5 * static::$MINUTE, 'in a minute',   -1),
+            array( 60 * static::$MINUTE, 'in %d minutes', -static::$MINUTE),
+            array(1.5 * static::$HOUR,   'in an hour',    -1),
+            array(      static::$DAY,    'in %d hours',   -static::$HOUR),
+            array(  2 * static::$DAY,    'tomorrow',      -1),
+            array(  7 * static::$DAY,    'in %d days',    -static::$DAY),
+            array(1.5 * static::$WEEK,   'in a week',     -1),
+            array(      static::$MONTH,  'in %d weeks',   -static::$WEEK),
+            array(1.5 * static::$MONTH,  'in a month',    -1),
+            array(      static::$YEAR,   'in %d months',  -static::$MONTH),
+            array(1.5 * static::$YEAR,   'in a year',     -1),
+            array(PHP_INT_MAX,           'in %d years',   -static::$YEAR)
         );
     }
 
