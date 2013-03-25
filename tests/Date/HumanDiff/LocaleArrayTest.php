@@ -17,6 +17,7 @@ class Date_HumanDiff_LocaleArrayTest extends PHPUnit_Framework_TestCase
     public function testTranslation()
     {
         $this->assertEquals('gerade eben', $this->la->get('just now', 0));
+        $this->assertEquals('morgen', $this->la->get('tomorrow', 0));
     }
 }
 
