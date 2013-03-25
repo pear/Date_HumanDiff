@@ -44,6 +44,20 @@ class Date_HumanDiff_Locale_el extends Date_HumanDiff_LocaleArray
         '%d months ago'  => 'πριν %d μήνες',
         'a year ago'     => 'πριν ένα χρόνο',
         '%d years ago'   => 'πριν %d χρόνια',
+
+        'in a moment'   => 'σε λίγο',
+        'in a minute'   => 'σε ένα λεπτό',
+        'in %d minutes' => 'σε %d λεπτά',
+        'in an hour'    => 'σε μια ώρα',
+        'in %d hours'   => 'σε %d ώρες',
+        'tomorrow'      => 'αύριο',
+        'in %d days'    => 'σε %d ημέρες',
+        'in a week'     => 'σε μια εβδομάδα',
+        'in %d weeks'   => 'σε %d εβδομάδες',
+        'in a month'    => "σ' ένα μήνα",
+        'in %d months'  => 'σε %d μήνες',
+        'in a year'     => "σ' ένα χρόνο",
+        'in %d years'   => 'σε %d χρόνια',
     );
 }
 ?>
