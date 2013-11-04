@@ -24,10 +24,10 @@ A time difference of 65 seconds gets converted to "a minute ago".
   <active>yes</active>
  </lead>
 
- <date>2012-08-27</date>
+ <date>2013-11-04</date>
 
  <version>
-  <release>0.4.0</release>
+  <release>0.4.1</release>
   <api>0.4.0</api>
  </version>
  <stability>
@@ -37,8 +37,7 @@ A time difference of 65 seconds gets converted to "a minute ago".
  <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
 
  <notes>
-- add persian translation
-- use stream_resolve_include_path instead of custom method
+  - Make package.xml validate against xsd
  </notes>
 
  <contents>
@@ -46,14 +45,14 @@ A time difference of 65 seconds gets converted to "a minute ago".
    <file name="README.rst"            role="doc" />
    <dir name="src">
     <dir name="Date">
-     <file name="HumanDiff.php"       role="php" install-as="Date/HumanDiff.php" />
+     <file name="HumanDiff.php"       role="php" />
      <dir name="HumanDiff">
-      <file name="Locale.php"         role="php" install-as="Date/HumanDiff/Locale.php" />
-      <file name="LocaleArray.php"    role="php" install-as="Date/HumanDiff/LocaleArray.php" />
+      <file name="Locale.php"         role="php" />
+      <file name="LocaleArray.php"    role="php" />
       <dir name="Locale">
-       <file name="de.php"            role="php" install-as="Date/HumanDiff/Locale/de.php" />
-       <file name="el.php"            role="php" install-as="Date/HumanDiff/Locale/el.php" />
-       <file name="fa.php"            role="php" install-as="Date/HumanDiff/Locale/fa.php" />
+       <file name="de.php"            role="php" />
+       <file name="el.php"            role="php" />
+       <file name="fa.php"            role="php" />
       </dir>
      </dir>
     </dir>
@@ -87,9 +86,34 @@ A time difference of 65 seconds gets converted to "a minute ago".
   </required>
  </dependencies>
 
- <phprelease />
+ <phprelease>
+  <filelist>
+   <install name="src/Date/HumanDiff.php"             as="Date/HumanDiff.php" />
+   <install name="src/Date/HumanDiff/Locale.php"      as="Date/HumanDiff/Locale.php" />
+   <install name="src/Date/HumanDiff/LocaleArray.php" as="Date/HumanDiff/LocaleArray.php" />
+   <install name="src/Date/HumanDiff/Locale/de.php"   as="Date/HumanDiff/Locale/de.php" />
+   <install name="src/Date/HumanDiff/Locale/el.php"   as="Date/HumanDiff/Locale/el.php" />
+   <install name="src/Date/HumanDiff/Locale/fa.php"   as="Date/HumanDiff/Locale/fa.php" />
+  </filelist>
+ </phprelease>
 
  <changelog>
+
+  <release>
+   <version>
+    <release>0.4.1</release>
+    <api>0.4.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2013-11-04</date>
+   <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
+   <notes>
+    - Make package.xml validate against xsd
+   </notes>
+  </release>
 
   <release>
    <version>
