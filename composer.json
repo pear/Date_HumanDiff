@@ -1,0 +1,28 @@
+{
+    "authors": [
+        {
+            "email": "cweiske@php.net",
+            "name": "Christian Weiske",
+            "role": "Lead"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    },
+    "description": "Generate textual time differences that are easily understandable by humans.",
+    "license": "LGPL",
+    "name": "pear/date_humandiff",
+    "support": {
+        "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Date_HumanDiff",
+        "source": "https://github.com/pear/Date_HumanDiff"
+    },
+    "type": "library",
+    "require": {
+        "pear/pear_exception": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
