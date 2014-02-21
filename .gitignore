@@ -1,2 +1,7 @@
 README.html
 *.tgz
+
+# composer related
+composer.lock
+composer.phar
+vendor
