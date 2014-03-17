@@ -6,7 +6,7 @@
  *
  * @category Date
  * @package  Date_HumanDiff
- * @author   Alireza Meskin<alireza.meskin@gmail.com>
+ * @author   Alireza Meskin <alireza.meskin@gmail.com>
  * @license  http://www.gnu.org/copyleft/lesser.html LGPL
  * @link     http://pear.php.net/package/Date_HumanDiff
  */
@@ -17,7 +17,7 @@ require_once 'Date/HumanDiff/LocaleArray.php';
  *
  * @category Date
  * @package  Date_HumanDiff
- * @author   Alireza Meskin<alireza.meskin@gmail.com>
+ * @author   Alireza Meskin <alireza.meskin@gmail.com>
  * @license  http://www.gnu.org/copyleft/lesser.html LGPL
  * @version  Release: @package_version@
  * @link     http://pear.php.net/package/Date_HumanDiff
