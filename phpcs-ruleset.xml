@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ruleset name="PEAR-NoClassNaming">
+ <description>The PEAR coding standard without class naming.</description>
+
+ <rule ref="PEAR">
+  <exclude name="PEAR.NamingConventions.ValidClassName.Invalid"/>
+ </rule>
+
+</ruleset>
