@@ -31,6 +31,21 @@ Usage
   ?>
 
 
+Supported languages
+===================
+- German
+- English
+- Greek
+- Persian
+- Russian
+
+Use a language with ``setLocale()``::
+
+    $dh = new Date_HumanDiff();
+    $dh->setLocale('de');
+    echo $dh->get(time() - 60 * 5) . "\n"; //shows "vor 5 Minuten"
+
+
 Other libraries
 ===============
 https://github.com/azer/relative-date/blob/master/lib/relative-date.js
