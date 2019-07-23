@@ -7,10 +7,13 @@
         }
     ],
     "autoload": {
-        "classmap": [
-            "./"
-        ]
+        "psr-0": {
+            "Date_HumanDiff": "src"
+        }
     },
+    "include-path": [
+        "src"
+    ],
     "description": "Generate textual time differences that are easily understandable by humans.",
     "license": "LGPL",
     "name": "pear/date_humandiff",
@@ -19,6 +22,11 @@
         "source": "https://github.com/pear/Date_HumanDiff"
     },
     "type": "library",
+    "autoload-dev": {
+        "classmap": [
+            "tests"
+        ]
+    },
     "require-dev": {
         "phpunit/phpunit": "*"
     }
